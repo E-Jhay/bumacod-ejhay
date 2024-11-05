@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Delights</title>
+</head>
+<body>
+    <main>
+        <section id="hero">
+            <h1>Welcome to Cafe Delights</h1>
+            <p>Your cozy corner for the coffee and treats in town</p>
+        </section>
+
+        <section id="contact_us">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Please fill out the form beliow:</p>
+
+            <form action="" style="max-width: 80%;">
+                <fieldset>
+                    <legend>Pesonal Information</legend>
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name"><br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email"><br><br>
+                    <label for="phone_number">Phone Number: </label>
+                    <input type="text" name="phone_number" id="phone_number" placeholder="123-456-7890"><br><br>
+                    <label for="date_of_birth">Date of Birth: </label>
+                    <input type="date" name="date_of_birth" id="date_of_birth"><br><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Visit Information</legend>
+                    <label for="visit_date">Preferred Visit Date: </label>
+                    <input type="date" name="visit_date" id="visit_date"><br><br>
+                    <label for="visit_time">Preferred Time: </label>
+                    <input type="time" name="visit_time" id="visit_time"><br><br>
+                    <label for="is_returning">Are you a returning customer?</label><br>
+                    <input type="radio" id="is_returning" name="is_returning" value="yes">
+                    <label> Yes</label><br>
+                    <input type="radio" id="is_returning" name="is_returning" value="no">
+                    <label> No</label><br><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Order Preferrences</legend>
+                    <label for="drink">Favorite Drink: </label>
+                    <select name="drink" id="drink">
+                        <option value="latte" selected>Latte</option>
+                    </select><br><br>
+                    <label for="dietary">Select your dietary: </label><br>
+                    <input type="checkbox" name="dietary[]" id="vegan" value="vegan">
+                    <label for="vegan">Vegan</label><br>
+                    <input type="checkbox" name="dietary[]" id="vegitarian" value="vegitarian">
+                    <label for="vegitarian">Vegitarian</label><br>
+                    <input type="checkbox" name="dietary[]" id="gluten_free" value="gluten_free">
+                    <label for="gluten_free">Gluten-Free</label><br><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Feedback</legend>
+                    <label for="rate">Rate Your Last Visit (1-5): </label>
+                    <input type="range" min="1" max="5" name="rate" id="rate"><br><br>
+                    <label for="comments">Additional Comments:</label><br>
+                    <textarea name="comments" id="comments" rows="5" cols="50" placeholder="Tell us about your experience..."></textarea><br><br>
+                    <label for="subscribe">Would you like to receive our newsletter? </label>
+                    <input type="checkbox" name="subscribe" id="subscribe">
+                </fieldset>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
