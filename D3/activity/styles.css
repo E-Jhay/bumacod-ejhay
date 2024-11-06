@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  line-height: 1.6;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1300px;
+  font-family: Arial, sans-serif;
+  padding: 0 20px;
+}
+
+span {
+  color: rgb(253, 170, 16);
+}
+
+.cta-button {
+  background-color: rgb(253, 170, 16);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  border: none;
+}
+
+.cta-button:hover {
+  background-color: rgb(209, 140, 12);
+}
+
+.section-title {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+/* Navbar */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 60px;
+  width: 100%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  padding: 0 9em;
+}
+
+.logo {
+  width: 150px;
+}
+
+.logo img {
+  max-width: 60%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #0073e6;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  padding-top: 160px;
+  background-image: url(image/main_img.png);
+  background-repeat: no-repeat;
+  background-position: right center; /* Aligns the image to the right center */
+  background-size: 50%; /* Ensures the image covers the container */
+}
+
+.hero h1 {
+  font-size: 3em;
+  max-width: 400px;
+  margin-bottom: 0.7em;
+  line-height: 1;
+}
+
+.hero p, .about-us p {
+  max-width: 700px;
+  margin-bottom: 2.5em;
+}
+
+/* About us */
+.about-us {
+    height: 100vh;
+    padding-top: 160px;
+    padding-left: 45%;
+    background-image: url(image/Food-Plate.png);
+    background-repeat: no-repeat;
+    background-position: left center; /* Place the image on the left side */
+    background-size: 50%; /* Adjust the image to fit within the container */
+}
+
+.about-us h1, .about-us h2 {
+    margin-bottom: .8rem;
+}
