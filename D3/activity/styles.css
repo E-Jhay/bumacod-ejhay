@@ -16,16 +16,23 @@ img {
 
 .container {
   margin: 0 auto;
-  max-width: 1300px;
+  max-width: 1200px;
   font-family: Arial, sans-serif;
-  padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+section {
+  padding: 100px 0;
 }
 
 span {
   color: rgb(253, 170, 16);
 }
 
-.cta-button {
+.cta-button, .menu-button {
   background-color: rgb(253, 170, 16);
   color: white;
   padding: 10px 20px;
@@ -33,35 +40,42 @@ span {
   font-weight: bold;
   transition: background-color 0.3s;
   border: none;
+  cursor: pointer;
 }
 
-.cta-button:hover {
+.cta-button:hover, .menu-button:hover {
   background-color: rgb(209, 140, 12);
 }
 
 .section-title {
-    font-size: 3em;
-    font-weight: bold;
+  font-size: 3em;
+  font-weight: bold;
 }
 
 /* Navbar */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  height: 60px;
   width: 100%;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  padding: 0 9em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Full-width shadow */
+  position: fixed; /* Keeps header fixed at top if desired */
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 1000; /* Ensures header is above other content */
+}
+
+header .container {
+  max-width: 1200px; /* Controls the max width of the content */
+  margin: 0 auto; /* Centers the container */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2em 0;
 }
 
 .logo {
-  width: 150px;
-}
-
-.logo img {
-  max-width: 60%;
+  width: 50px;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-links {
@@ -82,8 +96,8 @@ header {
 
 /* Hero */
 .hero {
+  margin-top: 4em;
   height: 100vh;
-  padding-top: 160px;
   background-image: url(image/main_img.png);
   background-repeat: no-repeat;
   background-position: right center; /* Aligns the image to the right center */
@@ -97,22 +111,82 @@ header {
   line-height: 1;
 }
 
-.hero p, .about-us p {
+.hero p,
+.about-us p {
   max-width: 700px;
   margin-bottom: 2.5em;
 }
 
 /* About us */
 .about-us {
-    height: 100vh;
-    padding-top: 160px;
-    padding-left: 45%;
-    background-image: url(image/Food-Plate.png);
-    background-repeat: no-repeat;
-    background-position: left center; /* Place the image on the left side */
-    background-size: 50%; /* Adjust the image to fit within the container */
+  height: 100vh;
+  padding-left: 45%;
+  background-image: url(image/Food-Plate.png);
+  background-repeat: no-repeat;
+  background-position: left center; /* Place the image on the left side */
+  background-size: 50%; /* Adjust the image to fit within the container */
 }
 
-.about-us h1, .about-us h2 {
-    margin-bottom: .8rem;
+.about-us h1,
+.about-us h2 {
+  margin-bottom: 0.8rem;
 }
+
+/* menu section */
+.menu-title {
+    color: rgb(209, 140, 12);
+}
+
+.menu-price {
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.menu-button {
+ background-color: #333;
+ color: white;
+}
+
+.menu-button:hover {
+ background-color: #595959;
+ color: white;
+}
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 3 equal-width columns */
+  gap: 1em;
+}
+
+.menu-item {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease; text-align: center;
+}
+
+.menu-item:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Gallery section */
+.gallery-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjusts columns based on screen size */
+    gap: 1em;
+}
+
+/* Review section */
+.review-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 3 equal-width columns */
+    gap: 1em;
+  }
+  
+  .review-item {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease; text-align: center;
+  }
