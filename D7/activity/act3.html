@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      h1,
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+      h1 {
+        margin-top: 20px;
+      }
+      h2 {
+        margin-top: 40px;
+        font-size: 1.5em;
+      }
+      #productList,
+      #productListCart {
+        list-style-type: none;
+        padding: 0;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      li {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fafafa;
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+      button {
+        padding: 8px 12px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #218838;
+      }
+      .quantity {
+        font-size: 0.9em;
+        color: #555;
+        margin-left: 10px;
+      }
+      #totalPriceElement {
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-top: 20px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Shopping Cart</h1>
+    <h2>Your Cart</h2>
+    <ul id="productListCart"></ul>
+    <p id="totalPriceElement">Total: $0.00</p>
+
+    <h2>Products</h2>
+    <ul id="productList"></ul>
+    <script src="script3.js"></script>
+  </body>
+</html>
