@@ -1,5 +1,9 @@
 const productList = document.querySelector(".product-list");
 
+const truncateText = (text, maxLength) => {
+  return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+};
+
 const products = async () => {
   try {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -12,6 +16,7 @@ const products = async () => {
     let content = "";
 
     data.forEach((product) => {
+      const truncatedDescription = truncateText(product.description, 300);
       content += `
         <div class="col-md-4">
           <div class="card h-100">
@@ -24,7 +29,7 @@ const products = async () => {
             <div class="card-body">
               <h5 class="card-title">${product.title}</h5>
               <p class="fw-bold text-secondary">$${product.price.toFixed(2)}</p>
-              <p class="card-text">${product.description}</p>
+              <p class="card-text">${truncatedDescription}</p>
             </div>
           </div>
         </div>`;
