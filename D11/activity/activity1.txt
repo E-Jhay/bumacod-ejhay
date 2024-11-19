@@ -1,0 +1,63 @@
+
+Step 3: Perform the following CRUD operations using MongoDB Compass:
+
+a) Create Operation:
+Insert at least three book documents with different fields such as title, author, genre, and publication year.
+db.Books.insertMany([
+  {
+    "title": "1984",
+    "author": { "name": "George Orwell", "nationality": "British" },
+    "genre": "drama",
+    "publishedYear": 1949
+  },
+  {
+    "title": "The Hobbit",
+    "author": { "name": "J.R.R. Tolkien", "nationality": "British" },
+    "genre": "fantasy",
+    "publishedYear": 1937
+  },
+  {
+    "title": "Book 3",
+    "author": { "name": "E-Jhay Bumacod", "nationality": "Filipino" },
+    "genre": "suspense",
+    "publishedYear": 1937
+  }
+])
+
+b) Read Operation:
+Retrieve all the book documents in the "Books" collection.
+db.Books.find();
+
+Retrieve a specific book document based on its title or author.
+db.Books.findOne({
+  $or: [
+    { title: "Book 3" },
+    { "author.name": "E-Jhay Bumacod" }
+  ]
+});
+
+
+c) Update Operation:
+Update the genre of a book document.
+db.Books.updateOne(
+  { title: "Book 3" },
+  { $set: { genre: "horror" } }
+);
+
+Update the publication year of a book document.
+db.Books.updateOne(
+  { title: "Book 3" },
+  { $set: { publishedYear: 2024 } }
+);
+
+d) Delete Operation:
+Delete a book document based on its title or author.
+db.Books.deleteOne({
+  $or: [
+    { title: "Book 3" },
+    { "author.name": "E-Jhay Bumacod" }
+  ]
+});
+
+Step 4: After each operation, verify the changes by re-reading the data from the "Books" collection.
+db.Books.find();
