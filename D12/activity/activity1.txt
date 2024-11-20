@@ -1,0 +1,152 @@
+Step 3:
+1: db.courses.aggregate([
+  {
+    $lookup: {
+      from: "categories",
+      localField: "category",
+      foreignField: "_id",
+      as: "category_details"
+    }
+  },
+  {
+    $unwind: "$category_details"
+  },
+  {
+    $match: {
+      "category_details.name": "Programming"
+    }
+  },
+  {
+    $project: {
+      title: 1,
+      "category_details.name": 1
+    }
+  }
+]);
+
+2. db.courses.aggregate([
+  { $match: { "title": "Introduction to MongoDB" } },
+  {
+    $lookup: {
+      from: "students",
+      localField: "students",
+      foreignField: "_id",
+      as: "students"
+    }
+  },
+  { $project: { "title": 1, "students.name": 1, "_id": 0 } }
+]);
+
+3. db.courses.aggregate([
+  {
+    $lookup: {
+      from: "categories",
+      localField: "category",
+      foreignField: "_id",
+      as: "category_details"
+    }
+  },
+  {
+    $lookup: {
+      from: "instructors",
+      localField: "instructor",
+      foreignField: "_id",
+      as: "instructor_details"
+    }
+  }
+]);
+
+4. db.courses.aggregate([
+    { $match: {"title": "Data Science with Python"} },
+    { $unwind: "$reviews"},
+    {
+        $lookup: {
+            from: "students",
+            localField: "reviews.student",
+            foreignField: "_id",
+            as: "student_details"
+        }
+    },
+    { $unwind: "$student_details" },
+    {
+    $group: {
+      _id: "$_id",
+      title: { $first: "$title" },
+      description: { $first: "$description" },
+      reviews: {
+        $push: {
+          rating: "$reviews.rating",
+          comment: "$reviews.comment",
+          student: {
+            name: "$student_details.name",
+            email: "$student_details.email"
+          }
+        }
+      }
+    }
+  },
+  {
+    $project: {
+      title: 1,
+      description: 1,
+      reviews: 1,
+      _id: 0
+    }
+  }
+]);
+
+5. db.courses.aggregate([
+  { 
+    $unwind: "$reviews"
+  },
+  { 
+    $group: {
+      _id: "$title",
+      averageRating: { $avg: "$reviews.rating" }
+    }
+  }
+]);
+
+6. db.courses.aggregate([
+    {
+        $lookup: {
+            from: "instructors",
+            localField: "instructor",
+            foreignField: "_id",
+            as: "instructor_details"
+        }
+    },
+    {
+        $match: {
+            "instructor_details.name" : "Jane Doe"
+        }
+    },
+    {
+        $project: {
+            "title" : 1,
+            "description" : 1
+        }
+    }
+]);
+
+7. db.categories.aggregate([
+    {
+        $lookup: {
+            from: "courses",
+            localField: "_id",
+            foreignField: "category",
+            as: "courses"
+        }
+    },
+    {
+        $addFields: {
+            courseCount: { $size: "$courses" }
+        }
+    },
+    {
+        $project: {
+            name: 1,
+            courseCount: 1
+        }
+    }
+]);
