@@ -150,3 +150,83 @@ Step 3:
         }
     }
 ]);
+
+8. db.courses.aggregate([
+    { $match: { title: "Introduction to MongoDB" } },
+    { $unwind: "$reviews" },
+    {
+        $lookup: {
+            from: "students",
+            localField: "reviews.student",
+            foreignField: "_id",
+            as: "student_details"
+        }
+    },
+    {
+        $unwind: "$student_details"
+    },
+    {
+        $project: {
+            _id: 0,
+            studentName: "$student_details.name",
+            studentEmail: "$student_details.email",
+            rating: "$reviews.rating",
+            comment: "$reviews.comment"
+        }
+    }
+]);
+
+9. db.courses.aggregate([
+    { $unwind: "$reviews" },
+    {
+        $group: {
+            _id: "$title",
+            averageRating: { $avg: "$reviews.rating" } 
+        }
+    },
+    {
+        $match: {
+            averageRating: { $gt: 4 }
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            title: "$_id"
+        }
+    }
+]);
+
+10. db.courses.aggregate([
+    {
+        $lookup: {
+            from: "instructors",
+            localField: "instructor",
+            foreignField: "_id",
+            as: "instructor_details"
+        }
+    },
+    {
+        $match: {
+            "instructor_details.name": "John Smith"
+        }
+    },
+    { $unwind: "$students" },
+    {
+        $lookup: {
+            from: "students",
+            localField: "students",
+            foreignField: "_id",
+            as: "student_details"
+        }
+    },
+    { $unwind: "$student_details" },
+    {
+        $project: {
+            _id: 0,
+            studentName: "$student_details.name",
+            studentEmail: "$student_details.email"
+        }
+    }
+]);
+
