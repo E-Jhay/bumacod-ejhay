@@ -6,6 +6,8 @@ import Contact from "./pages/Contact";
 import FormExample from "./components/FormExample";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import Team from "./pages/Team";
+import TeamMemberDetail from "./pages/TeamMemberDetail";
 
 function App() {
   return (
@@ -17,12 +19,8 @@ function App() {
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/form" element={<FormExample />} />
-          <Route path="/products" element={<Products />}>
-            <Route path=":id" element={<ProductDetail />} />
-          </Route>
+          <Route path="/team" element={<Team />} />
+          <Route path="/team/:id" element={<TeamMemberDetail />} />
         </Routes>
       </div>
     </Router>
