@@ -1,0 +1,35 @@
+body {
+  background-color: #f8f9fa;
+}
+/* Ensure consistent card size */
+.product-card {
+  width: 18rem; /* Fixed width */
+  height: 22rem; /* Fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures consistent spacing */
+  padding-top: 1rem;
+}
+
+/* Adjust the image size */
+.product-image {
+  height: 12rem;
+  object-fit: contain; /* Ensures images don't stretch */
+}
+
+/* Truncate long titles */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Adjust the product modalimage size */
+.product-modal-image {
+  height: 12rem;
+  object-fit: contain; /* Ensures images don't stretch */
+}
+
+.custom-modal {
+  text-align: center;
+}
